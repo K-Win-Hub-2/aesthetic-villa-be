@@ -1,69 +1,72 @@
-'use strict';
+"use strict";
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 mongoose.promise = global.Promise;
 const Schema = mongoose.Schema;
 
-
 let FixedAssetSchema = new Schema({
   name: {
-    type: String
+    type: String,
   },
   description: {
-    type: String
+    type: String,
   },
   relatedAccount: {
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'AccountingLists',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "AccountingLists",
   },
   type: {
-    type: String
+    type: String,
   },
   existingAsset: {
-    type: Boolean
+    type: Boolean,
   },
   initialPrice: {
     type: Number,
   },
   usedYear: {
-    type: String
+    type: String,
   },
   salvageValue: {
-    type:Number
+    type: Number,
   },
   depriciationTotal: {
-    type:Number
+    type: Number,
   },
-  useLife:{
-    type:Number
+  useLife: {
+    type: Number,
   },
   currentPrice: {
-    type:Number
+    type: Number,
   },
-  yearDepriciation:{
-    type:Number
+  yearDepriciation: {
+    type: Number,
   },
-  startDate:{
-    type:Date
+  startDate: {
+    type: Date,
   },
-  isDeleted:{
-    type:Boolean,
-    default:false
+  isDeleted: {
+    type: Boolean,
+    default: false,
   },
   relatedBranch: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Branches'
+    ref: "Branches",
   },
-  fixedAssetAcc:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'AccountingLists'
+  fixedAssetAcc: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "AccountingLists",
   },
-  depriciationAcc:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'AccountingLists'
-  }
+  depriciationAcc: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "AccountingLists",
+  },
+  totalMachineCost: {
+    type: Number,
+    default: 0,
+  },
 });
 
-module.exports = mongoose.model('FixedAssets', FixedAssetSchema);
+module.exports = mongoose.model("FixedAssets", FixedAssetSchema);
 
 //Author: Kyaw Zaw Lwin
